@@ -1,0 +1,36 @@
+# UNFINISHED
+
+version: "3.9"
+
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: postgis_container
+    environment:
+      POSTGRES_DB: geoapp_db
+      POSTGRES_USER: geoapp_user
+      POSTGRES_PASSWORD: geoapp_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  web:
+    build: .
+    container_name: django_app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=your_secret_key
+      - DATABASE_URL=postgres://geoapp_user:geoapp_password@db:5432/geoapp_db
+    restart: always
+
+volumes:
+  postgres_data:
