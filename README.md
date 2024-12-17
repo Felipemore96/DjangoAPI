@@ -2,14 +2,20 @@
 
 ### Project Overview
 
-This project involves developing a backend application that manages GeoJSON data and provides an API for creating, retrieving, and filtering GeoFeatures. The backend uses Django and Django Rest Framework (DRF) to handle API requests and GeoDjango for geospatial data management. The goal of this project is to showcase the ability to handle geospatial data efficiently, create RESTful APIs, and integrate third-party services for GeoJSON data handling.
+This is a Django-based backend project that provides an API for managing GeoJSON features. The project supports the following functionality:
+
+- CRUD operations for GeoJSON features.
+- Spatial filtering using bounding boxes (InBBoxFilter).
+- A script to upload GeoJSON files to populate the database.
+
+The project leverages Django REST Framework and GeoDjango for API and geospatial support, respectively.
 
 ### Project Structure
 
-- /api: Contains the main API logic for managing GeoFeatures.
-  - views.py: Handles the API views.
-  - serializers.py: Defines serializers for the GeoFeature model.
+- api: Contains the main API logic for managing GeoFeatures.
   - models.py: Contains the GeoFeature model with geospatial fields.
+  - serializers.py: Defines serializers for the GeoFeature model.
+  - views.py: Handles the API views.
   - urls.py: Defines URL patterns for the API endpoints.
 - load_geojson.py: A script to load GeoJSON data into the database.
 - settings.py: Contains Django project settings, including database and installed apps configuration.
@@ -18,10 +24,11 @@ This project involves developing a backend application that manages GeoJSON data
 
 Before you start, make sure you have the following installed:
 
-- Python 3.8+ (Recommended: Python 3.8 or later)
-- Django 3.2+ (For compatibility with GeoDjango)
-- PostGIS (To handle geospatial data in PostgreSQL)
-- pip (Python package manager)
+- Python Version 3.9 or later
+- PostgreSQL with PostGIS enabled for spatial data support
+- Django
+- GeoDjango Dependencies, libraries like gdal, proj, and libgeos
+- pip
 
 ### Installation
 
@@ -30,7 +37,7 @@ Before you start, make sure you have the following installed:
    Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/backend-coding-assignment.git
+   git clone https://github.com/Felipemore96/DjangoAPI
    cd backend-coding-assignment
    ```
 
@@ -65,7 +72,8 @@ Before you start, make sure you have the following installed:
    Run the migrations to create the necessary database tables:
 
    ```bash
-    python manage.py migrate
+   python manage.py makemigrations
+   python manage.py migrate
    ```
 
 5. Load provided GeoJSON data

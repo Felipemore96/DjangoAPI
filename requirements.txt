@@ -1,0 +1,7 @@
+Django>=4.2,<5.0
+djangorestframework>=3.14.0
+django-filter>=23.1
+psycopg2-binary>=2.9.3
+django-cors-headers>=4.0.0
+django-rest-framework-gis>=0.16.1
+python-dotenv>=1.0.0
