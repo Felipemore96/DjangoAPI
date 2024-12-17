@@ -1,8 +1,3 @@
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-# from rest_framework import status
-# from .models import User
-# from .serializer import UserSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_gis.filters import InBBoxFilter  # For bounding box filtering
 from .models import GeoFeature
