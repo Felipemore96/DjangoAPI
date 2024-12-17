@@ -20,6 +20,7 @@ from .serializer import GeoFeatureSerializer
 class GeoFeatureViewSet(ModelViewSet):
     queryset = GeoFeature.objects.all()
     serializer_class = GeoFeatureSerializer
+    # permission_classes = [IsAuthenticated] Something similar to this can be added to authenticate users
 
     # Bounding box filter setup
     bbox_filter_field = "geom"  # Specifies the geometry field to filter on

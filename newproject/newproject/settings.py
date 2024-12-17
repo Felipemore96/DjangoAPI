@@ -134,6 +134,7 @@ GDAL_LIBRARY_PATH = r"C:\Python312\Lib\site-packages\osgeo\gdal.dll"
 GEOS_LIBRARY_PATH = r"C:\Python312\Lib\site-packages\osgeo\geos_c.dll"
 
 
+# Pagination feature to keep API scalable
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
